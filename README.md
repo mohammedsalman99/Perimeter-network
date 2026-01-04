@@ -38,33 +38,7 @@ A reference table containing internal hosts, IP addresses, roles, operating syst
 ## Prerequisites
 
 - Basic Linux command-line knowledge  
-- Optional: Splunk instance access (see PDF instructions)  
-- Optional: Python or scripting tools for automation  
-
----
-
-## Setup
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/perimeter-network-challenge.git
-```
-
-### Navigate to the Directory
-
-```bash
-cd perimeter-network-challenge
-```
-
-### Verify Logs
-
-Ensure log files exist in the `logs/` directory.  
-If missing, generate sample logs using examples from the PDF.
-
-### Splunk Setup (Optional)
-
-Follow the walkthrough PDF to import logs into Splunk.
+- Splunk instance access (see PDF instructions)  
 
 ---
 
@@ -97,18 +71,9 @@ cat ids_alerts.log | grep "SMB" | grep "Exploit"
 Search for C2 beaconing:
 
 ```text
-index=perimeter_logs source=ids_alerts.json "TROJAN Possible C2 Beaconing"
+index="network_logs" source=ids_alerts.json "TROJAN Possible C2 Beaconing"
 ```
 
-Detect data exfiltration:
-
-```text
-index=perimeter_logs "ET INFO Possible HTTP POST Large Upload"
-```
-
-Refer to the PDF for full queries and screenshots.
-
----
 
 ## Challenge Questions
 
@@ -146,25 +111,3 @@ Refer to the PDF for full queries and screenshots.
 
 ---
 
-## Contributing
-
-Pull requests are welcome for:
-
-- Improved log samples  
-- Additional challenge scenarios  
-- Automated analysis scripts  
-
-All contributions must follow ethical security research practices.
-
----
-
-## License
-
-This project is licensed under the **MIT License**.  
-See the `LICENSE` file for details.
-
----
-
-## Acknowledgments
-
-Built for hands-on learning in network defense, threat hunting, and incident response.
